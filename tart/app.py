@@ -41,21 +41,18 @@ class Application:
         # extract message type and build handler name based on convention
         # shared with and adopted from QML
         try:
-            msg_type = msg[0]
+            name = msg[0]
             # apply Qt-style case normalization
-            name = 'on' + msg_type[0].upper() + msg_type[1:]
+            # name = 'on' + msg_type[0].upper() + msg_type[1:]
         except IndexError:
             tart.log('tart: ERROR, no type found in message')
             return
-
         else:
             # find a matching handler routine, if there is one
             try:
                 handler = getattr(self, name)
             except AttributeError:
-                if msg_type.startswith('on'):
-                    tart.log('tart: WARNING, message starts with "on", maybe remove?')
-
+                tart.log("tart: WARNING, could not call the method {}".format(name))
                 self.missing_handler(msg)
                 return
 
