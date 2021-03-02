@@ -86,12 +86,6 @@ def clean_compile(file: PyFile):
         print("Error-> the project's py folder does not exist : ", PROJECT_PY_FOLDER_PATH)
 
 
-def compile_deploy_project():
-    if clean_output_dir():
-        pass
-        # codeop.com
-
-
 def clean_output_dir() -> bool:
     if os.path.exists(PROJECT_PY_FOLDER_PATH):
         try:
