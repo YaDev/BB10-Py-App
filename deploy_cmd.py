@@ -70,7 +70,7 @@ def compile_py(file: PyFile):
     return file.pyc_path
 
 
-def clean_compile(file: PyFile):
+def check_compile(file: PyFile):
     if os.path.exists(PROJECT_PY_FOLDER_PATH):
         if os.path.exists(file.file_path):
             if os.path.isfile(file.file_path):
@@ -133,4 +133,4 @@ if __name__ == '__main__':
         print("You must create the project's 'py' folder or delete all its files and sub-folders")
 
     for py_file in py_files_list:
-        clean_compile(py_file)
+        check_compile(py_file)
