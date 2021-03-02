@@ -130,8 +130,11 @@ class Application:
         '''send to JavaScript for evaluation'''
         tart.send('evalJavascript', text=text)
 
-    def onEvalResult(self, value=None):
+    def eval_result(self, value=None):
         '''result from JavaScript eval sent from js()'''
         print('result', value)
+
+    def manual_exit(self):
+        print('existing')
 
 # EOF
